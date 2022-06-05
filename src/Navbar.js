@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './styles/navbar.sass'
 
 const Navbar = ({ fixed }) => {
@@ -6,7 +5,7 @@ const Navbar = ({ fixed }) => {
     <nav className="navbar">
       <div className="container">
         <div className="logo">
-          <a href="/">API Demo</a>
+          <a href="/api_demo">API Demo</a>
         </div>
       </div>
     </nav>
