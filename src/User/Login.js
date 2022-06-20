@@ -5,9 +5,9 @@ import Secret from '../Secret'
 import SubmitButton from '../Widget/SubmitButton'
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../styles/sign_up.sass'
+import '../styles/login.sass'
 
-const SignUp = () => {
+const Login = props => {
   const [submit, setSubmit] = useState(false)
   const [emailError, setEmailError] = useState(null)
   const [passwordError, setPasswordError] = useState(null)
@@ -107,7 +107,7 @@ const SignUp = () => {
   }
 
   return (
-    <section className="sign-up">
+    <section className="login">
       <div className="container">
         <div className="box">
           <div className="image">
@@ -138,7 +138,7 @@ const SignUp = () => {
                   errorMessage={passwordError}
                 />
               </div>
-              <div className="form-group">
+              { (props.action === 'sign up') && <div className="form-group">
                 <Input
                   type={'password'}
                   name={'passwordConfirmation'}
@@ -146,11 +146,11 @@ const SignUp = () => {
                   required={'required'}
                   errorMessage={passwordConfirm}
                 />
-              </div>
+              </div> }
               {submit ? (
                 <LoadingButton />
               ) : (
-                <SubmitButton submit={handleSubmit} />
+                <SubmitButton submit={handleSubmit} action={props.action} />
               )}
             </form>
             <div className="divide">
@@ -178,4 +178,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default Login 
